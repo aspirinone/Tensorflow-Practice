@@ -10,11 +10,11 @@ from utils import label_map_util
 from utils import visualization_utils as vis_util
 
 
-PATH_TO_FROZEN_GRAPH =  'D:/tensorflow/handset/export/frozen_inference_graph.pb'
+PATH_TO_FROZEN_GRAPH =  'D:/tensorflow/handset02/export02/frozen_inference_graph.pb'
 
-PATH_TO_LABELS = os.path.join('D:/tensorflow/handset/data','hand_label_map.pbtxt')
+PATH_TO_LABELS = os.path.join('D:/tensorflow/handset02/data','hand_label_map.pbtxt')
 
-NUM_CLASSES = 3
+NUM_CLASSES = 4
 
 detection_graph = tf.Graph()
 capture = cv.VideoCapture(0)
@@ -54,7 +54,7 @@ with detection_graph.as_default():
                     np.squeeze(classes).astype(np.int32),
                     np.squeeze(scores),
                     category_index,
-                    min_score_thresh=0.45,
+                    min_score_thresh=0.55,
                     use_normalized_coordinates=True,
                     line_thickness=4
                 )
